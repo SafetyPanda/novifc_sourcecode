@@ -1,0 +1,121 @@
+/* NOVI'S PLACE CSS and COLOR SCHEME */
+
+
+/* Universal Stuffs */
+
+body {
+    background-color: #282c34;
+    color: #282c34;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+
+  h1 {
+    font-weight: bold;
+    padding: 20px;
+    
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-inner {
+  background-color:#282c34;
+}
+
+.carousel {
+  background-color:#282c34;
+}
+
+.noviModal {
+    background-color: #bdbec0;
+    color: #282c34;
+    size: small;
+}
+
+.noviModalHead {
+    background-color:#282c34;
+    color:white;
+    size: small;
+}
+
+
+/* Join Us CSS */
+  .discordImage {
+      scale: .5;
+}
+
+  .container {
+    width: 940px auto;
+    margin: 4 auto;
+    padding-top:50px; 
+  }
+
+  .noviJumbo {
+    background-color: #bdbec0;
+    padding: 10px;
+
+  }
+
+  .jumboRow {
+    padding-top:20px;
+  }
+
+  .noviNav  {
+    background-color: forestgreen;
+  }
+
+  /* BUTTON CSS */
+  .uniBtn {
+    background-color: forestgreen;
+    border-color: forestgreen;
+    margin: 8px;
+  }
+
+  .uniBtn:hover {
+    background-color: darkgrey;
+    border-color: darkgrey;
+  }
+
+  .uniBtn:active {
+    background-color: forestgreen;
+    border-color: forestgreen;
+  }
+
+  .discordBtn {
+      background-color: transparent;
+      border-color: transparent;
+  }
+
+  .discordBtn:hover {
+    background-color: darkgray;
+    border-color: transparent;
+  }
+
+  /* Member Gallery CSS */
+
+  .galleryHead {
+    background-color:forestgreen;
+    color:white;
+    size: small;
+  }
+
+  .galleryBody {
+    background-color:#282c34;
+    color:white;
+    size: small;
+}
+
+.galleryJumbo {
+  background-color: #282c34;
+  padding:0px;
+}
+
+.galleryP {
+  background-color: #282c3483;
+  font-weight: bold;
+  display: inline-block;
+  font-size: small;
+}
