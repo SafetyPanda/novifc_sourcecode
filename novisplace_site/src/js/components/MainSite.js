@@ -15,29 +15,28 @@ class MainSite extends Component {
       setShow: false,
 
       showMaster: false,
-      showTribune: false,
-      showChad: false,
+      showLord: false,
+      showMentor: false,
       showOfficer: false,
       showMember: false,
+      showGuest: false,
 
       setOpenPics: false,
       url: "https://discord.gg/ZDgkCmn"
     };
-
-}
-  
+  }
   
   // HANDLERS.. TO BE CLEANED LATER //
   handleOpenMaster = () => {
       this.setState({showMaster: !this.state.showMaster});
   }
 
-  handleOpenTribune = () => {
-    this.setState({showTribune: !this.state.showTribune});
+  handleOpenLord = () => {
+    this.setState({showLord: !this.state.showLord});
   }
 
-  handleOpenChad = () => {
-    this.setState({showChad: !this.state.showChad});
+  handleOpenMentor = () => {
+    this.setState({showMentor: !this.state.showMentor});
   }
 
   handleOpenOfficer = () => {
@@ -46,6 +45,10 @@ class MainSite extends Component {
 
   handleOpenMember = () => {
     this.setState({showMember: !this.state.showMember});
+  }
+
+  handleOpenGuest = () => {
+    this.setState({showGuest: !this.state.showGuest});
   }
 
   //JOIN US
@@ -94,7 +97,8 @@ class MainSite extends Component {
   renderNavBar() {
     return(
       <Navbar  className="noviNav" variant="dark" expand="lg" fixed="top">
-          <Navbar.Brand>Novi's Place</Navbar.Brand>
+          <Navbar.Brand>
+          Novi's Place</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -114,7 +118,30 @@ class MainSite extends Component {
     return(
       <Jumbotron className="noviJumbo">
           <h1>Welcome To Novi's Place!</h1>
-          <Image src="images/groupFC.png" fluid />
+          <Container>
+            <Carousel>
+              <Carousel.Item> <img src="images/group_photos/group1.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group2.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group3.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group4.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group5.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group6.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group7.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group8.jpg"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group9.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group10.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group11.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group12.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group13.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group14.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group15.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group16.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group17.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group18.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group19.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group20.png"/> </Carousel.Item>
+            </Carousel>
+          </Container>
           <Row className="jumboRow">
             {this.introText()}
           </Row>
@@ -158,8 +185,6 @@ class MainSite extends Component {
     window.open(this.state.url);
   }
 
-  
-
   ///////////////////
   // CALENDAR CODE //
   ///////////////////
@@ -192,15 +217,17 @@ class MainSite extends Component {
             <Modal.Body className="noviModal">
               <h2>Select a Rank:</h2>
                 {this.renderButtonMaster()}
-                {this.renderButtonTribune()}
-                {this.renderButtonChad()}
+                {this.renderButtonLord()}
+                {this.renderButtonMentor()}
                 {this.renderButtonOfficer()}
                 {this.renderButtonMember()}
+                {this.renderButtonGuest()}
                 {this.openMasterModal()}
-                {this.openTribuneModal()}
-                {this.openChadModal()}
+                {this.openLordModal()}
+                {this.openMentorModal()}
                 {this.openOfficerModal()}
                 {this.openMemberModal()}
+                {this.openHonGuestModal()}
             </Modal.Body>
           </Modal>
         </div>
@@ -218,21 +245,21 @@ class MainSite extends Component {
     );
   }
 
-  renderButtonTribune() {
+  renderButtonLord() {
     return(
       <div>
-        <Button className="uniBtn" onClick={this.handleOpenTribune}>
-            Tribune
+        <Button className="uniBtn" onClick={this.handleOpenLord}>
+            Lord
         </Button>
       </div>
     );
   }
 
-  renderButtonChad() {
+  renderButtonMentor() {
     return(
       <div>
-        <Button className="uniBtn" onClick={this.handleOpenChad}>
-            Giga Chad
+        <Button className="uniBtn" onClick={this.handleOpenMentor}>
+            Mentor
         </Button>
       </div>
     );
@@ -258,6 +285,16 @@ class MainSite extends Component {
     );
   }
 
+  renderButtonGuest() {
+    return(
+      <div>
+        <Button className="uniBtn" onClick={this.handleOpenGuest}>
+            Honorary Guest
+        </Button>
+      </div>
+    );
+  }
+
   openMasterModal() {
       if(this.state.showMaster == true) {
         return (
@@ -273,14 +310,14 @@ class MainSite extends Component {
       }
   }
 
-  openTribuneModal() {
-    if(this.state.showTribune == true) {
+  openLordModal() {
+    if(this.state.showLord == true) {
       return (
         <div>
-          <Modal show={this.state.showTribune} onHide={this.handleOpenTribune} size="xl">
-          <Modal.Header className="galleryHead" closeButton>Tribunes</Modal.Header>
+          <Modal show={this.state.showLord} onHide={this.handleOpenLord} size="xl">
+          <Modal.Header className="galleryHead" closeButton>Lords</Modal.Header>
             <Modal.Body className="galleryBody">
-                {this.renderTribuneBox()}
+                {this.renderLordBox()}
             </Modal.Body>
           </Modal>
         </div>
@@ -288,14 +325,14 @@ class MainSite extends Component {
     }
   }
 
-  openChadModal() {
-    if(this.state.showChad == true) {
+  openMentorModal() {
+    if(this.state.showMentor == true) {
       return (
         <div>
-          <Modal show={this.state.showChad} onHide={this.handleOpenChad} size="xl">
-          <Modal.Header className="galleryHead" closeButton>Giga-Chads</Modal.Header>
+          <Modal show={this.state.showMentor} onHide={this.handleOpenMentor} size="xl">
+          <Modal.Header className="galleryHead" closeButton>Mentors</Modal.Header>
             <Modal.Body className="galleryBody">
-                {this.renderChadBox()}
+                {this.renderMentorBox()}
             </Modal.Body>
           </Modal>
         </div>
@@ -308,7 +345,7 @@ class MainSite extends Component {
       return (
         <div>
           <Modal show={this.state.showOfficer} onHide={this.handleOpenOfficer} size="xl">
-          <Modal.Header className="galleryHead" closeButton>M'Officers</Modal.Header>
+          <Modal.Header className="galleryHead" closeButton>Officers</Modal.Header>
             <Modal.Body className="galleryBody">
                 {this.renderOfficerBox()}
             </Modal.Body>
@@ -333,6 +370,21 @@ class MainSite extends Component {
     }
   }
 
+  openHonGuestModal() {
+    if(this.state.showGuest == true) {
+      return (
+        <div>
+          <Modal show={this.state.showGuest} onHide={this.handleOpenGuest} size="xl">
+          <Modal.Header className="galleryHead" closeButton>Honorary Guest</Modal.Header>
+            <Modal.Body className="galleryBody">
+                {this.renderHonGuestBox()}
+            </Modal.Body>
+          </Modal>
+        </div>
+      );
+    }
+  }
+
   ////////////////////////////////////////////////////
   // Jumbotron and Carousel for Member Pics Section //
   ////////////////////////////////////////////////////
@@ -349,24 +401,28 @@ class MainSite extends Component {
     );
   }
 
-  renderTribuneBox() {
+  renderLordBox() {
     return(
       <Jumbotron className="galleryJumbo">
         <Container >
           <Carousel>
-            {this.umiPic()}
+            {this.foxPic()}
+            {this.fryPic()}
+            {this.umiPic()} 
           </Carousel>
         </Container>
         </Jumbotron>
     );
   }
 
-  renderChadBox() {
+  renderMentorBox() {
     return(
       <Jumbotron className="galleryJumbo">
         <Container >
           <Carousel>
-            {this.foxPic()}
+          {this.erzaPic()}
+          {this.jenniePic()}
+          {this.leprosyPic()}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -378,9 +434,8 @@ class MainSite extends Component {
       <Jumbotron className="galleryJumbo">
           <Carousel>
           {this.deliaPic()}
-          {this.owiePic()}
-          {this.erzaPic()}
           {this.novinaPic()}
+          {this.reiPic()}
           </Carousel>
         </Jumbotron>
     );
@@ -391,8 +446,23 @@ class MainSite extends Component {
       <Jumbotron className="galleryJumbo">
         <Container >
           <Carousel>
-          {this.yuriPic()}
           {this.elemirPic()}
+          {this.yomogiPic()}
+          {this.ellaPic()}
+          {this.velvetPic()}
+          {this.kryszaPic()}
+          </Carousel>
+        </Container>
+        </Jumbotron>
+    );
+  }
+
+  renderHonGuestBox() {
+    return(
+      <Jumbotron className="galleryJumbo">
+        <Container >
+          <Carousel>
+            {this.laliahPic()}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -423,10 +493,10 @@ class MainSite extends Component {
       <Carousel.Item>
         <img
           src="images/member_photos/umi.png"
-          alt="Umi Rhalden"
+          alt="Dumpster Potato"
         />
         <Carousel.Caption>
-          <p className="galleryP">Umi Rhalden</p>
+          <p className="galleryP">Dumpster Potato</p>
         </Carousel.Caption>
       </Carousel.Item>
     );
@@ -441,20 +511,6 @@ class MainSite extends Component {
         />
         <Carousel.Caption>
           <p className="galleryP">Delia Amaris</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    )
-  }
-
-  owiePic() {
-    return(
-      <Carousel.Item>
-        <img
-          src="images/member_photos/owie.jpg"
-          alt="Owie Kapowie"
-        />
-        <Carousel.Caption>
-            <p className="galleryP">Owie Kapowie</p>
         </Carousel.Caption>
       </Carousel.Item>
     )
@@ -478,7 +534,7 @@ class MainSite extends Component {
     return(
       <Carousel.Item>
         <img
-          src="images/member_photos/erza.jpg"
+          src="images/member_photos/erza.png"
           alt="Erza Rainteau"
         />
         <Carousel.Caption>
@@ -488,19 +544,6 @@ class MainSite extends Component {
     )
   }
 
-  yuriPic() {
-    return(
-      <Carousel.Item>
-        <img
-          src="images/member_photos/yuri.png"
-          alt="Y'uri Tia"
-        />
-        <Carousel.Caption>
-          <p className="galleryP">Y'uri Tia</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    );
-  }
 
   elemirPic() {
     return(
@@ -520,7 +563,7 @@ class MainSite extends Component {
     return(
       <Carousel.Item>
         <img
-          src="images/fox.png"
+          src="images/member_photos/fox.png"
           alt="Fox"
         />
         <Carousel.Caption>
@@ -530,6 +573,132 @@ class MainSite extends Component {
     );
   }
 
+  jenniePic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/jennie.png"
+          alt="Jennie Johansson"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Jennie Johansson</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  leprosyPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/leprosy.png"
+          alt="Leprosy Hansen"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Leprosy Hansen</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  reiPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/rei.png"
+          alt="Rei Kusinagi"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Rei Kusinagi</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  yomogiPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/yomogi.jpg"
+          alt="Yomogi Ando"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Yomogi Ando</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  fryPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/fry.png"
+          alt="Fry Bear"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Fry Bear</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  kryszaPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/krysza.png"
+          alt="Krysza Darthe"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Krysza Darthe</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  laliahPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/laliah.png"
+          alt="Laliah Sunsworn"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Laliah Sunsworn</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  ellaPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/ella.png"
+          alt="Ella Bloode"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Ella Bloode</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  velvetPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/velvet.png"
+          alt="Velvet Crowekiller"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Velvet Crowekiller</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+  
   templateMemberPic() {
     return(
       <Carousel.Item>
@@ -540,6 +709,22 @@ class MainSite extends Component {
         <Carousel.Caption>
           <p className="galleryP">Member Name Here</p>
         </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+
+  ////////////////////////
+  // GROUP PICS SECTION //
+  ////////////////////////
+
+  groupPic1() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/group_photos/group1.png"
+          alt="Group 1"
+        />
       </Carousel.Item>
     );
   }
