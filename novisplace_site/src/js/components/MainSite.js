@@ -12,6 +12,7 @@ class MainSite extends Component {
       show: false,
       showMemb: false,
       showCal: false,
+      showRules: false,
       setShow: false,
 
       showMaster: false,
@@ -78,6 +79,15 @@ class MainSite extends Component {
     this.setState({showMemb: false});
   }
 
+  //Policies
+  handleRulesOpen = () => {
+    this.setState({showMemb: true});
+  }
+
+  handleRulesClose = () => {
+    this.setState({showMemb: false});
+  }
+
   render() {
     return (
       <div>
@@ -85,6 +95,7 @@ class MainSite extends Component {
         {this.renderNavBar()}
         {this.openCalModal()}
         {this.openMembModal()} 
+        {this.openRulesModal()}
       </Row>
       <Container className={"container"} fluid> 
           {this.renderWelcomeBox()}
@@ -104,6 +115,7 @@ class MainSite extends Component {
             <Nav className="mr-auto">
               <Nav.Link onClick={this.handleMembOpen}>Members</Nav.Link>
               <Nav.Link onClick={this.handleCalOpen}>FC Schedule</Nav.Link>
+              <Nav.Link onClick={this.handleRulesOpen}>Policies</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -140,6 +152,16 @@ class MainSite extends Component {
               <Carousel.Item> <img src="images/group_photos/group18.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group19.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group20.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group21.jpg"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group22.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group23.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group24.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group25.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group26.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group27.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group28.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group29.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group30.png"/> </Carousel.Item>
             </Carousel>
           </Container>
           <Row className="jumboRow">
@@ -183,6 +205,24 @@ class MainSite extends Component {
 
   openDiscordInv() {
     window.open(this.state.url);
+  }
+
+  ///////////////////
+  // POLICIES CODE //
+  ///////////////////
+  openRulesModal() {
+    if(this.state.showRules == true) {
+      return (
+        <div>
+          <Modal show={this.state.showRules} onHide={this.handleRulesClose} size="lg">
+            <Modal.Header className="noviModalHead">Rules and Policies</Modal.Header>
+            <Modal.Body className="noviModal">
+                Rules and Policies are being argued about. Come back later.
+            </Modal.Body>
+          </Modal>
+        </div>
+      );
+    }
   }
 
   ///////////////////
@@ -394,7 +434,7 @@ class MainSite extends Component {
       <Jumbotron className="galleryJumbo">
         <Container>
           <Carousel>
-          {this.tokoroPic()}
+            {this.tokoroPic()}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -420,9 +460,9 @@ class MainSite extends Component {
       <Jumbotron className="galleryJumbo">
         <Container >
           <Carousel>
-          {this.erzaPic()}
-          {this.jenniePic()}
-          {this.leprosyPic()}
+            {this.erzaPic()}
+            {this.jenniePic()}
+            {this.leprosyPic()}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -433,9 +473,9 @@ class MainSite extends Component {
     return(
       <Jumbotron className="galleryJumbo">
           <Carousel>
-          {this.deliaPic()}
-          {this.novinaPic()}
-          {this.reiPic()}
+            {this.deliaPic()}
+            {this.novinaPic()}
+            {this.reiPic()}
           </Carousel>
         </Jumbotron>
     );
@@ -446,14 +486,16 @@ class MainSite extends Component {
       <Jumbotron className="galleryJumbo">
         <Container >
           <Carousel>
-          {this.elemirPic()}
-          {this.yomogiPic()}
-          {this.ellaPic()}
-          {this.velvetPic()}
-          {this.kryszaPic()}
+            {this.elemirPic()}
+            {this.yomogiPic()}
+            {this.ellaPic()}
+            {this.velvetPic()}
+            {this.kryszaPic()}
+            {this.seigfriedPic()}
+            {this.tristanPic()}
           </Carousel>
         </Container>
-        </Jumbotron>
+      </Jumbotron>
     );
   }
 
@@ -698,12 +740,54 @@ class MainSite extends Component {
       </Carousel.Item>
     );
   }
+
+  seigfriedPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/seigfried.jpg"
+          alt="Seigfried Stratos"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Seigfried Stratos</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  tristanPic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/tristan.png"
+          alt="Tristan Azthalt"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Tristan Azthalt</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
+
+  rumblePic() {
+    return(
+      <Carousel.Item>
+        <img
+          src="images/member_photos/rumble.jpg"
+          alt="Rumble Pumn"
+        />
+        <Carousel.Caption>
+          <p className="galleryP">Rumble Pumn</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  }
   
   templateMemberPic() {
     return(
       <Carousel.Item>
         <img
-          src="INSERT IMAGE HERE"
+          src="images/member_photos/INSERT IMAGE HERE"
           alt="MEMBER NAME HERE"
         />
         <Carousel.Caption>
@@ -712,23 +796,6 @@ class MainSite extends Component {
       </Carousel.Item>
     );
   }
-
-
-  ////////////////////////
-  // GROUP PICS SECTION //
-  ////////////////////////
-
-  groupPic1() {
-    return(
-      <Carousel.Item>
-        <img
-          src="images/group_photos/group1.png"
-          alt="Group 1"
-        />
-      </Carousel.Item>
-    );
-  }
-
 }
 export default MainSite;
 
