@@ -21,6 +21,10 @@ img {
   height: auto;
 }
 
+li {
+  text-align: left;
+}
+
 .carousel-inner {
   background-color:#282c34;
 }

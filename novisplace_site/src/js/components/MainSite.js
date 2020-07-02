@@ -81,11 +81,11 @@ class MainSite extends Component {
 
   //Policies
   handleRulesOpen = () => {
-    this.setState({showMemb: true});
+    this.setState({showRules: true});
   }
 
   handleRulesClose = () => {
-    this.setState({showMemb: false});
+    this.setState({showRules: false});
   }
 
   render() {
@@ -139,7 +139,6 @@ class MainSite extends Component {
               <Carousel.Item> <img src="images/group_photos/group5.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group6.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group7.png"/> </Carousel.Item>
-              <Carousel.Item> <img src="images/group_photos/group8.jpg"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group9.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group10.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group11.png"/> </Carousel.Item>
@@ -147,7 +146,7 @@ class MainSite extends Component {
               <Carousel.Item> <img src="images/group_photos/group13.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group14.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group15.png"/> </Carousel.Item>
-              <Carousel.Item> <img src="images/group_photos/group16.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group16.jpg"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group17.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group18.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group19.png"/> </Carousel.Item>
@@ -161,7 +160,7 @@ class MainSite extends Component {
               <Carousel.Item> <img src="images/group_photos/group27.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group28.png"/> </Carousel.Item>
               <Carousel.Item> <img src="images/group_photos/group29.png"/> </Carousel.Item>
-              <Carousel.Item> <img src="images/group_photos/group30.png"/> </Carousel.Item>
+              <Carousel.Item> <img src="images/group_photos/group30.jpg"/> </Carousel.Item>
             </Carousel>
           </Container>
           <Row className="jumboRow">
@@ -175,12 +174,27 @@ class MainSite extends Component {
   introText(){
     return(
       <p>
-          We are a small but growing Free Company in Faerie with an active and friendly community atmosphere. 
+          We are a medium sized but growing Free Company in Faerie with an active and friendly community atmosphere. 
           With members from newcomers to veterans, casual players to hardcore endgame raiders we are sure to fill any need you want from a Free Company!
       </p>
     );
   }
  
+  policyText(){
+    return(
+      <p>
+        <ol>
+          <li>Do not put down/hurt/discriminate other players with the intent of harm.</li>
+          <li>Be inclusive.</li>
+          <li>Don't argue. Feel free to ask to change conversation topic and feel free to refer to this rule.</li>
+          <li>Have fun!!</li>
+          <li>Take any political discussion with a grain of salt. Feel free to refer rule 3 if chat gets heated.</li>
+          <li>60 day inactivity will result in kick from the guild. This is simply to keep our roster fresh, alive, and active.</li>
+        </ol>
+      </p>
+    );
+  }
+
   openJoinUsModal() {
     if(this.state.show == true) {
       return (
@@ -215,9 +229,9 @@ class MainSite extends Component {
       return (
         <div>
           <Modal show={this.state.showRules} onHide={this.handleRulesClose} size="lg">
-            <Modal.Header className="noviModalHead">Rules and Policies</Modal.Header>
+            <Modal.Header className="noviModalHead" closeButton>Rules and Policies</Modal.Header>
             <Modal.Body className="noviModal">
-                Rules and Policies are being argued about. Come back later.
+                {this.policyText()}
             </Modal.Body>
           </Modal>
         </div>
@@ -234,7 +248,7 @@ class MainSite extends Component {
       return (
         <div>
           <Modal show={this.state.showCal} onHide={this.handleCalClose} size="lg">
-            <Modal.Header className="noviModalHead">FC Calendar</Modal.Header>
+            <Modal.Header className="noviModalHead" closeButton>FC Calendar</Modal.Header>
             <Modal.Body className="noviModal">
                 We're working vewy hawd. :3
             </Modal.Body>
