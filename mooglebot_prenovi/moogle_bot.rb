@@ -6,6 +6,7 @@ require 'configatron'
 require_relative './config.rb'
 
 require './data_collection.rb'
+require './xiv_database.rb'
 #require '/Users/MoogleBot/mooglebot/data_collection.rb'
 
 MP3TEST = './test.mp3'
@@ -26,8 +27,7 @@ magic8Ball = ["Not so sure", "Ask me later", "Most likely", "Absolutely not", "O
 
 qCount = quote_array(YUGIOHQUOTES)
 iCount = insult_array(INSULTQUOTES)
-puts(qCount)
-print(YUGIOHQUOTES)
+
 
 bot = Discordrb::Commands::CommandBot.new token: configatron.token, prefix: '!'
 
@@ -73,6 +73,15 @@ bot.command(:play) do |event, url|
 
     voice_bot = event.voice
     voice_bot = event.voice.play_file(MP3TEST)
+end
+
+#
+# XIV API BLOCK
+#
+
+bot.command(:xivinfo) do |event|
+    
+    event << test()
 end
 
 

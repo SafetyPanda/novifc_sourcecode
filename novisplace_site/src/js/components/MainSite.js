@@ -191,6 +191,7 @@ class MainSite extends Component {
           <li>Take any political discussion with a grain of salt. Feel free to refer rule 3 if chat gets heated.</li>
           <li>60 day inactivity will result in kick from the guild. This is simply to keep our roster fresh, alive, and active.</li>
         </ol>
+        If you are not joining Discord, you must accept the policies using link below!
       </p>
     );
   }
@@ -233,6 +234,7 @@ class MainSite extends Component {
             <Modal.Body className="noviModal">
                 {this.policyText()}
             </Modal.Body>
+            <Button className="uniBtn" onClick={()=> window.open("https://forms.gle/FZfG7GYkpiANfnue9", "GoogleForm")}>Accept Rules</Button>
           </Modal>
         </div>
       );
