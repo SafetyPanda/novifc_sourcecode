@@ -24,8 +24,26 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|ttf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },   
+      {
+        test: /\.ttf$/,
+        use: [
+          {
+            loader: 'ttf-loader',
+            options: {
+              name: './font/[hash].[ext]',
+            },
+          },
+        ]
       }
-      
     ]
   },
   plugins: [

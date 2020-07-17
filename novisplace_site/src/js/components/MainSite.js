@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Navbar, Nav, Container, Row, Jumbotron, Button, Image, Modal, Carousel} from "react-bootstrap";
+import { Navbar, Nav, Accordion, Container, Row, Jumbotron, Button, Image, Modal, Carousel, Card} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./noviStyle.css"
 
@@ -11,7 +11,7 @@ class MainSite extends Component {
     this.state = {
       show: false,
       showMemb: false,
-      showCal: false,
+      showGal: false,
       showRules: false,
       setShow: false,
 
@@ -23,7 +23,6 @@ class MainSite extends Component {
       showGuest: false,
 
       setOpenPics: false,
-      url: "https://discord.gg/ZDgkCmn"
     };
   }
   
@@ -61,13 +60,13 @@ class MainSite extends Component {
     this.setState({show: false});
   }
 
-  //CALENDAR
-  handleCalOpen = () => {
-    this.setState({showCal: true});
+  //GALLERY
+  handleGalOpen = () => {
+    this.setState({showGal: true});
   }
 
-  handleCalClose = () => {
-    this.setState({showCal: false});
+  handleGalClose = () => {
+    this.setState({showGal: false});
   }
 
   //MEMBERS
@@ -91,33 +90,44 @@ class MainSite extends Component {
   render() {
     return (
       <div>
-      <Row>
-        {this.renderNavBar()}
-        {this.openCalModal()}
-        {this.openMembModal()} 
-        {this.openRulesModal()}
+        <div className="bg1"></div>
+        <div class="bg-text">
+          <h1>Welcome To Novi's Place!</h1>
+          {this.renderCardWelcome()}
+        </div>
+        <Row>
+          {this.renderNavBar()}
+          {this.openMembModal()} 
+          {this.openRulesModal()}
+          {this.openJoinUsModal()}
+          {this.openGalModal()}
       </Row>
-      <Container className={"container"} fluid> 
-          {this.renderWelcomeBox()}
-          {this.openJoinUsModal()}  
-      </Container> 
-      </div>      
+      </div>     
     );
   }
+  /////////////////
+  // HEADER CODE //
+  /////////////////
 
   renderNavBar() {
     return(
-      <Navbar  className="noviNav" variant="dark" expand="lg" fixed="top">
-          <Navbar.Brand>
-          Novi's Place</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link onClick={this.handleMembOpen}>Members</Nav.Link>
-              <Nav.Link onClick={this.handleCalOpen}>FC Schedule</Nav.Link>
-              <Nav.Link onClick={this.handleRulesOpen}>Policies</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+      <Navbar className="noviNav" variant="dark" expand="sm" fixed="top">
+          
+            <Navbar.Brand>  
+                Novi's Place
+            </Navbar.Brand>
+            <Navbar.Collapse className="justify-content-end">
+              <Button className="cardBtn" variant="primary" onClick={() => this.openDiscordInv()} >
+                <Image 
+                  src="images/discord.svg"
+                  style={{
+                    width: 30,
+                    height: 30
+                  }}
+                  />
+              </Button>
+            </Navbar.Collapse>
+            
         </Navbar>
     );
   }
@@ -125,11 +135,94 @@ class MainSite extends Component {
   //////////////////
   // WELCOME CODE //
   //////////////////
-
-  renderWelcomeBox() {
+  
+  renderCardWelcome() {
     return(
-      <Jumbotron className="noviJumbo">
-          <h1>Welcome To Novi's Place!</h1>
+      <Container>
+            <Accordion defaultActiveKey="0">
+            <div>
+            <div>
+              <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
+                Who We Are
+              </Accordion.Toggle>
+            </div>
+            <Accordion.Collapse eventKey="1">
+            <Row className="justify-content-center">
+          
+              <Button className="uniBtn" variant="primary" onClick={() => this.handleJoinOpen()}>About Us</Button>
+              <Button className="uniBtn" variant="primary" onClick={() => this.handleMembOpen()}>Members</Button>
+              <Button className="uniBtn" variant="primary" onClick={() => this.handleRulesOpen()}>Policies</Button>
+              <Button className="uniBtn" variant="primary" onClick={() => this.handleGalOpen()}>Gallery</Button>
+         
+          </Row>
+            </Accordion.Collapse>
+            </div>
+            </Accordion>
+          
+          </Container>
+    );
+  }
+
+  ///////////////////
+  // ABOUT US CODE //
+  ///////////////////
+
+  introText(){
+    return(
+      <p>
+          Founded in February of 2020, Novi is an adventurer's haven. Quench your thirst at the FC campfire. Group up with other player character's waiting to party up in voice chat and slap some monsters. Earn extra EXP and find faster queues with other FC Members!
+      </p>
+    );
+  }
+
+  openJoinUsModal() {
+    if(this.state.show == true) {
+      return (
+        <div>
+          <Modal show={this.state.show} onHide={this.handleJoinClose}>
+            <Modal.Header className="noviModalHead" closeButton>About Us</Modal.Header>
+            <Modal.Body className="noviModalHead">
+                {this.introText()}
+                {this.renderDiscordButton()}
+            </Modal.Body>
+          </Modal>
+        </div>
+      );
+    }
+  }
+
+  renderDiscordButton() {
+    return(
+      <Button className="uniBtn" variant="primary" onClick={() => this.openDiscordInv()}>Join Us On Discord!</Button>
+    )
+  }
+
+  openDiscordInv() {
+    window.open("https://discord.gg/ZDgkCmn");
+  }
+
+  //////////////////
+  // GALLERY CODE //
+  //////////////////
+
+  openGalModal() {
+    if(this.state.showGal == true) {
+      return (
+        <div>
+          <Modal show={this.state.showGal} onHide={this.handleGalClose} size="lg">
+            <Modal.Header className="noviModalHead " closeButton>Gallery</Modal.Header>
+            <Modal.Body className="noviModal">
+                {this.renderGallery()}
+            </Modal.Body>
+          </Modal>
+        </div>
+      );
+    }
+  }
+
+  renderGallery() {
+    return(
+      <Jumbotron className="galleryJumbo">
           <Container>
             <Carousel>
               <Carousel.Item> <img src="images/group_photos/group1.png"/> </Carousel.Item>
@@ -163,23 +256,30 @@ class MainSite extends Component {
               <Carousel.Item> <img src="images/group_photos/group30.jpg"/> </Carousel.Item>
             </Carousel>
           </Container>
-          <Row className="jumboRow">
-            {this.introText()}
-          </Row>
-          <Button className="uniBtn" variant="primary" onClick={this.handleJoinOpen}>Join Us On Discord!</Button>
         </Jumbotron>
     );
   }
 
-  introText(){
-    return(
-      <p>
-          We are a medium sized but growing Free Company in Faerie with an active and friendly community atmosphere. 
-          With members from newcomers to veterans, casual players to hardcore endgame raiders we are sure to fill any need you want from a Free Company!
-      </p>
-    );
+  ///////////////////
+  // POLICIES CODE //
+  ///////////////////
+
+  openRulesModal() {
+    if(this.state.showRules == true) {
+      return (
+        <div>
+          <Modal show={this.state.showRules} onHide={this.handleRulesClose} size="lg">
+            <Modal.Header className="noviModalHead" closeButton>Rules and Policies</Modal.Header>
+            <Modal.Body className="noviModal">
+                {this.policyText()}
+                <Button className="uniBtn" onClick={()=> window.open("https://forms.gle/FZfG7GYkpiANfnue9", "GoogleForm")}>Accept Rules</Button>
+            </Modal.Body>
+          </Modal>
+        </div>
+      );
+    }
   }
- 
+
   policyText(){
     return(
       <p>
@@ -196,70 +296,6 @@ class MainSite extends Component {
     );
   }
 
-  openJoinUsModal() {
-    if(this.state.show == true) {
-      return (
-        <div>
-          <Modal show={this.state.show} onHide={this.handleJoinClose} size="sm">
-            <Modal.Body className="noviModalHead">
-                {this.renderDiscordButton()}
-            </Modal.Body>
-          </Modal>
-        </div>
-      );
-    }
-  }
-
-  renderDiscordButton() {
-    return(
-      <Button className="discordBtn" id="discBtn" onClick={() => this.openDiscordInv()}>
-          <Image className={"discordImage"} src="images/discord.png" fluid/>
-      </Button>
-    )
-  }
-
-  openDiscordInv() {
-    window.open(this.state.url);
-  }
-
-  ///////////////////
-  // POLICIES CODE //
-  ///////////////////
-  openRulesModal() {
-    if(this.state.showRules == true) {
-      return (
-        <div>
-          <Modal show={this.state.showRules} onHide={this.handleRulesClose} size="lg">
-            <Modal.Header className="noviModalHead" closeButton>Rules and Policies</Modal.Header>
-            <Modal.Body className="noviModal">
-                {this.policyText()}
-            </Modal.Body>
-            <Button className="uniBtn" onClick={()=> window.open("https://forms.gle/FZfG7GYkpiANfnue9", "GoogleForm")}>Accept Rules</Button>
-          </Modal>
-        </div>
-      );
-    }
-  }
-
-  ///////////////////
-  // CALENDAR CODE //
-  ///////////////////
-
-  openCalModal() {
-    if(this.state.showCal == true) {
-      return (
-        <div>
-          <Modal show={this.state.showCal} onHide={this.handleCalClose} size="lg">
-            <Modal.Header className="noviModalHead" closeButton>FC Calendar</Modal.Header>
-            <Modal.Body className="noviModal">
-                We're working vewy hawd. :3
-            </Modal.Body>
-          </Modal>
-        </div>
-      );
-    }
-  }
-
   /////////////////////////
   // MEMBER GALLERY CODE //
   /////////////////////////
@@ -268,14 +304,13 @@ class MainSite extends Component {
     if(this.state.showMemb == true) {
       return (
         <div>
-          <Modal show={this.state.showMemb} onHide={this.handleMembClose} size="xl">
+          <Modal show={this.state.showMemb} onHide={this.handleMembClose} size="lg">
             <Modal.Header className="noviModalHead" closeButton>Our Current Members!</Modal.Header>
             <Modal.Body className="noviModal">
-              <h2>Select a Rank:</h2>
                 {this.renderButtonMaster()}
                 {this.renderButtonLord()}
-                {this.renderButtonMentor()}
                 {this.renderButtonOfficer()}
+                {this.renderButtonMentor()}
                 {this.renderButtonMember()}
                 {this.renderButtonGuest()}
                 {this.openMasterModal()}
@@ -295,7 +330,7 @@ class MainSite extends Component {
     return(
       <div>
         <Button className="uniBtn" onClick={this.handleOpenMaster}>
-            Master
+            Overlord
         </Button>
       </div>
     );
@@ -305,17 +340,7 @@ class MainSite extends Component {
     return(
       <div>
         <Button className="uniBtn" onClick={this.handleOpenLord}>
-            Lord
-        </Button>
-      </div>
-    );
-  }
-
-  renderButtonMentor() {
-    return(
-      <div>
-        <Button className="uniBtn" onClick={this.handleOpenMentor}>
-            Mentor
+            Lords
         </Button>
       </div>
     );
@@ -325,7 +350,17 @@ class MainSite extends Component {
     return(
       <div>
         <Button className="uniBtn" onClick={this.handleOpenOfficer}>
-            M'Officer
+            Officers
+        </Button>
+      </div>
+    );
+  }
+
+  renderButtonMentor() {
+    return(
+      <div>
+        <Button className="uniBtn" onClick={this.handleOpenMentor}>
+            Rangers
         </Button>
       </div>
     );
@@ -335,7 +370,7 @@ class MainSite extends Component {
     return(
       <div>
         <Button className="uniBtn" onClick={this.handleOpenMember}>
-            Member
+            Members
         </Button>
       </div>
     );
@@ -345,7 +380,7 @@ class MainSite extends Component {
     return(
       <div>
         <Button className="uniBtn" onClick={this.handleOpenGuest}>
-            Honorary Guest
+            Honorary Guests
         </Button>
       </div>
     );
@@ -388,7 +423,7 @@ class MainSite extends Component {
           <Modal show={this.state.showMentor} onHide={this.handleOpenMentor} size="xl">
           <Modal.Header className="galleryHead" closeButton>Mentors</Modal.Header>
             <Modal.Body className="galleryBody">
-                {this.renderMentorBox()}
+                {this.renderRangerBox()}
             </Modal.Body>
           </Modal>
         </div>
@@ -431,7 +466,7 @@ class MainSite extends Component {
       return (
         <div>
           <Modal show={this.state.showGuest} onHide={this.handleOpenGuest} size="xl">
-          <Modal.Header className="galleryHead" closeButton>Honorary Guest</Modal.Header>
+          <Modal.Header className="galleryHead" closeButton>Honorary Guests</Modal.Header>
             <Modal.Body className="galleryBody">
                 {this.renderHonGuestBox()}
             </Modal.Body>
@@ -465,20 +500,9 @@ class MainSite extends Component {
             {this.foxPic()}
             {this.fryPic()}
             {this.umiPic()} 
-          </Carousel>
-        </Container>
-        </Jumbotron>
-    );
-  }
-
-  renderMentorBox() {
-    return(
-      <Jumbotron className="galleryJumbo">
-        <Container >
-          <Carousel>
             {this.erzaPic()}
-            {this.jenniePic()}
             {this.leprosyPic()}
+            {this.deliaPic()}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -488,11 +512,25 @@ class MainSite extends Component {
   renderOfficerBox() {
     return(
       <Jumbotron className="galleryJumbo">
-          <Carousel>
-            {this.deliaPic()}
+          <Carousel>           
             {this.novinaPic()}
             {this.reiPic()}
           </Carousel>
+        </Jumbotron>
+    );
+  }
+
+  renderRangerBox() {
+    return(
+      <Jumbotron className="galleryJumbo">
+        <Container >
+          <Carousel>
+            
+            {this.jenniePic()}
+            {this.kryszaPic()}
+            {this.seigfriedPic()}
+          </Carousel>
+        </Container>
         </Jumbotron>
     );
   }
@@ -504,10 +542,7 @@ class MainSite extends Component {
           <Carousel>
             {this.elemirPic()}
             {this.yomogiPic()}
-            {this.ellaPic()}
             {this.velvetPic()}
-            {this.kryszaPic()}
-            {this.seigfriedPic()}
             {this.tristanPic()}
           </Carousel>
         </Container>
@@ -724,20 +759,6 @@ class MainSite extends Component {
         />
         <Carousel.Caption>
           <p className="galleryP">Laliah Sunsworn</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    );
-  }
-
-  ellaPic() {
-    return(
-      <Carousel.Item>
-        <img
-          src="images/member_photos/ella.png"
-          alt="Ella Bloode"
-        />
-        <Carousel.Caption>
-          <p className="galleryP">Ella Bloode</p>
         </Carousel.Caption>
       </Carousel.Item>
     );
