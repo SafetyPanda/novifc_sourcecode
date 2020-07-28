@@ -1,0 +1,4 @@
+libsodium not available! You can continue to use discordrb as normal but voice support won't work.
+        Read https://github.com/meew0/discordrb/wiki/Installing-libsodium for more details.
+7
+["It's time to d-d-d-duel!\n", "Screw the rules, I have money!\n", "BROOKLYN RAGE!\n", "CARD GAMES ON MOTORCYCLES!\n", "These sunglasses sure make it hard to see in the dark. But I refuse to take them off, because I'm an American. And Americans always wear sunglasses.\n", "Yu-Gi-Oh is filmed before a live studio audience.\n", "Gay people like to hibernate in caves, I saw it on the Discovery Channel.\n"][INFO : websocket @ 2019-12-11 02:27:50.518] Discord using gateway protocol version: 6, requested: 6
