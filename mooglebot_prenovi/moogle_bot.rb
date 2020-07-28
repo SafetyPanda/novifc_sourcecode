@@ -175,7 +175,8 @@ bot.command(:flipcoin) do |event|
 end
 
 bot.command(:addpic) do |event|
-    event << "https://forms.gle/kJT4wuH9Vi5NRYKx6"
+    picArray =["USE THIS LINK TO ADD YOUR PICTURE. :3","https://forms.gle/kJT4wuH9Vi5NRYKx6"]
+    event.send_multiple(picArray)
 end
 
 ##
