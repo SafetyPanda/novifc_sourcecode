@@ -35,7 +35,7 @@ def insult_array(iArray)
     return iCount
 end
 
-def add_quote(qArray, quote)
+def add_insult(iArray, quote)
     string = quote.join(" ")
     open(I_FILE_LOCATION, 'a') do |line|
         line.puts(string)

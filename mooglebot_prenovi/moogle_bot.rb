@@ -151,7 +151,7 @@ bot.command(:insultme) do |event|
 end
 
 bot.command(:insultadd) do |event, *string|   
-    add_quote(MOOGLEQUOTES, string)
+    add_quote(INSULTQUOTES, string)
     iCount = iCount + 1
     event << 'Added Insult, Kupo~!'
 end
