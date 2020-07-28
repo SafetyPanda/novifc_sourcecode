@@ -1,24 +1,26 @@
 # NoviFC_SourceCode
 
 ### Contains:
-- Website
+- Website (novisplace_site)
     - [x] FC Member Images
     - [x] Group Images
     - [x] Entire Source Code
         - [x] Written in React
-- Moogle Discord Bot
+- Moogle Discord Bot (mooglebot_prenovi)
     - [x] Written in Ruby  
     - [x] Has Dependencies
-- Novi Helper Tool
+- Novi Helper Tool(novihelper)
     - [x] Written in Bash (Requires Dialog to be installed)
         - [x] MacOS, Linux, and WSL2 supported
+- Novi Server Bootstrap (novi_server)
+    - [x] Written in Bash
+        - [x] Debian Based Distros ONLY
 
 ### Documentation
-- Work in progress.
-- Readme in each project directory should have instructions in it
+- Readme in each project directory has instructions in it
 
 ### Whats Next?
-- Install script to bootstrap entire server and install dependencies for remote install.
+- Finishing Up Discord Bot
 
 ### License
 Copyright (C) 2019-2020  James Gillman [jronaldgillman@gmail.com]

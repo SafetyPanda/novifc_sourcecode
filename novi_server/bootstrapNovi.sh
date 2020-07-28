@@ -49,6 +49,7 @@ apt install nginx -y
 apt install cron -y
 apt install dialog -y
 apt install maven -y
+apt install nodejs -y
 
 gem install discordrb
 gem install configatron
@@ -92,6 +93,7 @@ certbot --nginx
 #
 # SET CRON JOB FOR MOOGLEBOT
 #
+
 systemctl enable cron.service
 systemctl start cron.service
 
