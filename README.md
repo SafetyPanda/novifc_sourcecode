@@ -6,7 +6,7 @@
     - [x] Group Images
     - [x] Entire Source Code
         - [x] Written in React
-- Moogle Discord Bot (mooglebot_prenovi)
+- Moogle Discord Bot (mooglebot)
     - [x] Written in Ruby  
     - [x] Has Dependencies
 - Novi Helper Tool(novihelper)
