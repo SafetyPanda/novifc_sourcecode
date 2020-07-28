@@ -17,7 +17,7 @@
         - [x] Debian Based Distros ONLY
 
 ### Documentation
-- Readme in each project directory has instructions in it
+- README.md in each project directory has instructions in it
 
 ### Whats Next?
 - Finishing Up Discord Bot

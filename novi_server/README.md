@@ -1,5 +1,7 @@
-# Bootstrap Novi
-Quick and easy way to build the Novi Server, website, and Bot.
+# Novi_Server
+Essential scripts for Novi Server.
+- bootstrapNovi.sh to build entire server/site/bot
+- rebuildSite.sh to rebuild website.
 
 # Prerequisites
 - Server has been made
@@ -8,10 +10,10 @@ Quick and easy way to build the Novi Server, website, and Bot.
 
 # Instructions
 - CD into git repo and the novi_server folder
-- Run: `chmod 777 bootstrapNovi.sh` to ensure you can execute the script
-- Run: `./bootstrapNovi.sh` as Root or use Sudo
-- Hang around computer, you will have some prompts from Certbot to answer.
+- Run: `chmod 777 <SCRIPT NAME>` to ensure you can execute the script
+- Run: `./<SCRIPT NAME>` as Root or use Sudo
+- Hang around computer, you will have some prompts from Certbot to answer if running bootstrapNovi.sh
 
 # Changing
-- Script is very straightforward.
-- Comment out any packages you don't want or sections of Novi you don't want to deal with.
+- Scripts are very straightforward.
+- Comment out any packages you don't want or sections of bootstrapNovi.sh you don't want to deal with.

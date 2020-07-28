@@ -1,5 +1,6 @@
 # NoviHelper
-A TUI Tool for interacting with server environments and it's bots or automation tools
+A TUI Tool for interacting with server environments and it's bots or automation tools either locally or remotely.
+Made for the people who don't want to interact with the server in a CLI.
 
 # Features!
 - Basic Server Tasks! Reboot, Update, SSH Into from one easy TUI
@@ -9,35 +10,17 @@ A TUI Tool for interacting with server environments and it's bots or automation 
 - Edit your Bot/Automation code through vim or other editors.
 - Easy to use
 
-# Install
-- Clone this repo, download the zip, or download the file.
+# Prerequisites
+- Bash, SSH, and Dialog is installed.
+- Runs on MacOS, WSL2, and Linux.
 
 # Usage
-- Add your servers and bot info. in the corresponding spots.
-- If you have more than one bot to add make sure you add a spot for it in menu and change the switch statement to account for that.
+- Run: `chmod 777 Novi_Helper` to ensure it can be executed.
+- Run: `./Novi_Helper`
  
-
-# Dependencies
--Bash
--Dialog
-
-# Change Log
-- Version 1.3 - Novi Edition: Made Specially for Novi FC. Now supports Site restarting via nginx and updating via git repo.
-
-- Version 1.0: Initial Release - Panda Helper.
-
-# License
-Copyright (C) 2019  James Gillman [jronaldgillman@gmail.com]
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ # Changing
+- Dialog is fairly straight forward and I tried to keep code very self documenting.
+- Important thing to remember is with --menu
+    - `  --menu "Select Bot:" 15 40 2 \`
+        - The number 15 and 40 are the dimensions of your box
+        - 2 is the number of menu items. MAKE SURE THIS IS SET CORRECTLY. IT WILL FAIL OTHERWISE.
