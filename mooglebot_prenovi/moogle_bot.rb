@@ -137,11 +137,11 @@ bot.mention do |event|
 end
 
 bot.command(:quote) do |event|
-    event.respond quoteOHQUOTES[rand(qCount)]
+    event.respond MOOGLEQUOTES[rand(qCount)]
 end
 
 bot.command(:quoteadd) do |event, *string|   
-    add_quote(quoteOHQUOTES, string)
+    add_quote(MOOGLEQUOTES, string)
     qCount = qCount + 1
     event << 'Added Quote, Kupo~!'
 end
@@ -151,7 +151,7 @@ bot.command(:insultme) do |event|
 end
 
 bot.command(:insultadd) do |event, *string|   
-    add_quote(quoteOHQUOTES, string)
+    add_quote(MOOGLEQUOTES, string)
     iCount = iCount + 1
     event << 'Added Insult, Kupo~!'
 end
