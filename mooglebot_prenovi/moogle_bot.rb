@@ -174,6 +174,10 @@ bot.command(:flipcoin) do |event|
     end
 end
 
+bot.command(:addpic) do |event|
+    event << "https://forms.gle/kJT4wuH9Vi5NRYKx6"
+end
+
 ##
 # COMMAND IMAGES BLOCK
 ##
