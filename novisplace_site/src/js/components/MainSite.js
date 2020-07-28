@@ -503,6 +503,7 @@ class MainSite extends Component {
             {this.erzaPic()}
             {this.leprosyPic()}
             {this.deliaPic()}
+            {/*{this.templateMemberPic()}*/}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -515,6 +516,7 @@ class MainSite extends Component {
           <Carousel>           
             {this.novinaPic()}
             {this.reiPic()}
+            {/*{this.templateMemberPic()}*/}
           </Carousel>
         </Jumbotron>
     );
@@ -529,6 +531,7 @@ class MainSite extends Component {
             {this.jenniePic()}
             {this.kryszaPic()}
             {this.seigfriedPic()}
+            {/*{this.templateMemberPic()}*/}
           </Carousel>
         </Container>
         </Jumbotron>
@@ -544,6 +547,7 @@ class MainSite extends Component {
             {this.yomogiPic()}
             {this.velvetPic()}
             {this.tristanPic()}
+            {/*{this.templateMemberPic()}*/}
           </Carousel>
         </Container>
       </Jumbotron>
