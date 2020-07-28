@@ -1,4 +1,4 @@
-Q_FILE_LOCATION = "./yugiQuotes.txt"
+Q_FILE_LOCATION = "./moogleQuotes.txt"
 I_FILE_LOCATION = "./insults.txt"
 
 #Q_FILE_LOCATION = "/Users/toptierpanda/Documents/CodingProjects/Ruby/mooglebot/yugiQuotes.txt"
