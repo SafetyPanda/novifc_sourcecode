@@ -7,7 +7,6 @@ require_relative './config.rb'
 
 require './data_collection.rb'
 require './xiv_database.rb'
-#require '/Users/MoogleBot/mooglebot/data_collection.rb'
 
 MP3TEST = './test.mp3'
 REEE = './botImages/reee.gif'
@@ -18,14 +17,14 @@ FAINT = './botImages/faint.gif'
 TRAPPED = './botImages/trapped.gif'
 BITCHES = './botImages/bitches.gif'
 
-YUGIOHQUOTES = Array.new
+MOOGLEQUOTES = Array.new
 INSULTQUOTES = Array.new
 
 magic8Ball = ["Not so sure", "Ask me later", "Most likely", "Absolutely not", "Outlook is good", "I see good things happening", "Never",
     "Negative", "Could be", "Unclear, ask again", "Yes", "No", "Possible, but not probable"
 ]
 
-qCount = quote_array(YUGIOHQUOTES)
+qCount = quote_array(MOOGLEQUOTES)
 iCount = insult_array(INSULTQUOTES)
 
 
@@ -37,17 +36,16 @@ bot.command :echo  do |event, *word|
 end
 
 bot.command :usage do |event|
-    event << 'You- You- You saved my soul, Yugi.'
     event << '!echo <arg> => Repeats word you said boiii'
-    event << '!yugi => Grab a random quote from the quote list'
-    event << '!yugiadd => Add a quote to the quote list to laugh at them laters'
+    event << '!quote => Grab a random quote from the quote list'
+    event << '!quoteadd => Add a quote to the quote list to laugh at them laters'
     event << '!insultme => I will insult you'
     event << '!insultadd => Add an insult to insult you'
     event << '!ask => Ask the magic 8 ball a question.'
     event << '!flip => Does a coin flip for you'
     event << '!pat => Give me a head pat. :)'
     event << '!bitches => BITCHES'
-    event << '!faint => FAINTING YUGI'
+    event << '!faint => FAINTING'
     event << '!trapped => ACTIVATED TRAP'
     event << 'ree => REEEEEEE!'
     event << 'yea boi => Get oiled up'
@@ -79,8 +77,7 @@ end
 # XIV API BLOCK
 #
 
-bot.command(:xivinfo) do |event|
-    
+bot.command(:xivinfo) do |event|   
     event << test()
 end
 
@@ -139,14 +136,14 @@ bot.mention do |event|
     event.user.pm('Get Dabbed on! Kupo~! \O>')
 end
 
-bot.command(:yugi) do |event|
-    event.respond YUGIOHQUOTES[rand(qCount)]
+bot.command(:quote) do |event|
+    event.respond quoteOHQUOTES[rand(qCount)]
 end
 
-bot.command(:yugiadd) do |event, *string|   
-    add_quote(YUGIOHQUOTES, string)
+bot.command(:quoteadd) do |event, *string|   
+    add_quote(quoteOHQUOTES, string)
     qCount = qCount + 1
-    event << 'Added to the Quote Deck'
+    event << 'Added Quote, Kupo~!'
 end
 
 bot.command(:insultme) do |event|
@@ -154,7 +151,7 @@ bot.command(:insultme) do |event|
 end
 
 bot.command(:insultadd) do |event, *string|   
-    add_quote(YUGIOHQUOTES, string)
+    add_quote(quoteOHQUOTES, string)
     iCount = iCount + 1
     event << 'Added Insult, Kupo~!'
 end
