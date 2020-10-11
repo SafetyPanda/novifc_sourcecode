@@ -10,8 +10,8 @@
 # SETUP STUFF #
 #             #
 
-$websiteDirectory="/var/www/novisplace.org"
-$nginxDirectory="/etc/nginx"
+websiteDirectory="/var/www/novisplace.org"
+nginxDirectory="/etc/nginx"
 
 #
 # CHECK FOR ROOT OR SUDO
@@ -35,7 +35,7 @@ echo "#-------------------------------------------#"
 echo "#         PRESS ANY KEY TO CONTINUE         #"
 echo "#############################################"
 
-
+read keypress
 #
 # INSTALL PACKAGES
 #
@@ -51,11 +51,11 @@ apt install dialog -y
 apt install maven -y
 apt install nodejs -y
 
-gem install discordrb
-gem install configatron
-gem install streamio-ffmpeg
-gem install specific_install
-gem specfic_install https://github.com/xivapi/xivapi-ruby.git
+#gem install discordrb
+#gem install configatron
+#gem install streamio-ffmpeg
+#gem install specific_install
+#gem specfic_install https://github.com/xivapi/xivapi-ruby.git
 
 #
 # CONFIGURE NGINX & WEBSITE 
@@ -94,14 +94,14 @@ certbot --nginx
 # SET CRON JOB FOR MOOGLEBOT
 #
 
-systemctl enable cron.service
-systemctl start cron.service
+#systemctl enable cron.service
+#systemctl start cron.service
 
-crontab -l > mycron
+#crontab -l > mycron
 
-echo "@reboot sleep 60 && ruby /root/novifc_sourcecode/mooglebot/mooglebot.rb &" >> mycron
-crontab mycron
-rm mycron
+#echo "@reboot sleep 60 && ruby /root/novifc_sourcecode/mooglebot/mooglebot.rb &" >> mycron
+#crontab mycron
+#rm mycron
 
 #
 # START MOOGLEBOT & START WEBSITE

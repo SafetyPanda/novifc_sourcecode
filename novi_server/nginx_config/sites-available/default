@@ -20,7 +20,7 @@
 #
 server {
    listen 80 default_server;
-   root /var/www/novisplace_site/dist;
+   root /var/www/novisplace.org/dist;
    server_name novisplace.org;
    index index.html index.htm;
    location / {
