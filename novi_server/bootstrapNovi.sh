@@ -36,6 +36,7 @@ echo "#         PRESS ANY KEY TO CONTINUE         #"
 echo "#############################################"
 
 read keypress
+
 #
 # INSTALL PACKAGES
 #
@@ -43,6 +44,7 @@ read keypress
 apt update && apt upgrade
 
 apt install ruby -y
+apt install npm -y
 apt install ruby-dev -y
 apt install libopus-dev -y
 apt install nginx -y
@@ -50,6 +52,10 @@ apt install cron -y
 apt install dialog -y
 apt install maven -y
 apt install nodejs -y
+
+#
+# INSTALL BOT PACKAGES
+#
 
 #gem install discordrb
 #gem install configatron
@@ -61,14 +67,13 @@ apt install nodejs -y
 # CONFIGURE NGINX & WEBSITE 
 #
 
+#REMOVE AND COPY OVER NON-CERTIFIED FILES
 rm /etc/nginx/sites-enabled/default
-
-# COPY OVER CONFIG FILES
 
 rm -rf $nginxDirectory/sites-available
 cp -r nginx_config/sites-available $nginxDirectory
 
-cp nginx_config/
+cp nginx_config/novisplace.org.conf $nginxDirectory/conf.d/
 
 #SET FIREWALL SETTINGS
 ufw allow 'NGINX Full'
@@ -79,16 +84,7 @@ ufw enable
 nginx -s reload
 service nginx restart
 
-#
-# INSTALL CERTBOT
-#
-
-apt-get install software-properties-common
-add-apt-repository universe
-add-apt-repository ppa:certbot/certbot
-apt-get update
-apt-get install certbot python3-certbot-nginx
-certbot --nginx
+wait 5
 
 #
 # SET CRON JOB FOR MOOGLEBOT
@@ -109,8 +105,20 @@ certbot --nginx
 
 cp -r /root/novifc_sourcecode/novisplace_site $websiteDirectory
 
-chmod 777 $websiteDirectory/novisplace_site/startSite.sh
-$websiteDirectory/novisplace_site/startSite.sh
+chmod 777 $websiteDirectory/startSite.sh
+cd $websiteDirectory
+./startSite.sh
+
+#
+# INSTALL CERTBOT
+#
+
+apt-get install software-properties-common
+add-apt-repository universe
+add-apt-repository ppa:certbot/certbot
+apt-get update
+apt-get install certbot python3-certbot-nginx
+certbot --nginx
 
 sleep 10
 
