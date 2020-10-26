@@ -107,6 +107,7 @@ cp -r /root/novifc_sourcecode/novisplace_site $websiteDirectory
 
 chmod 777 $websiteDirectory/startSite.sh
 cd $websiteDirectory
+
 ./startSite.sh
 
 #

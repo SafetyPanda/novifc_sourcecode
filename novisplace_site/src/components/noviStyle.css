@@ -1,0 +1,218 @@
+/* NOVI'S PLACE CSS and COLOR SCHEME */
+
+/* FONTS I'M USING*/
+
+/* 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif; 
+*/
+
+
+/* Universal Stuffs */
+
+body {
+    background-color: #282c34;
+    color: #282c34;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    height: 100%;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-style: normal;
+    padding: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    
+}
+img {
+  width: 75%;
+  height: auto;
+}
+
+li {
+  text-align: left;
+}
+
+.carousel-inner {
+  background-color:#282c34;
+}
+
+.carousel {
+  background-color:#282c34;
+}
+
+.noviModal {
+    background-color: #282c34;
+    color: whitesmoke;
+    size: small;
+}
+
+.noviModalHead {
+    background-color:#282c34;
+    color:whitesmoke;
+    size: small;
+}
+
+/* Home Page */
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+}
+
+/*SECTION BACKGROUNDS*/
+
+.home {
+  background-image: url("./Home/home_bg.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.about {
+  background-image: url("./About/about_bg.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.login {
+  background-image: url("./Backend/login_bg.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.rules {
+  background-image: url("./Rules/rules_bg.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+/* NAVBAR CSS */
+.noviNav  {
+  background-color: forestgreen;
+  opacity: 90%;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  line-height: inherit;
+  white-space: nowrap;
+  align-content: left;
+  vertical-align: text-bottom;
+  font-kerning: 3px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.logo {
+  width: 6% !important;
+  height: 6%;
+  padding: 3px;
+}
+
+
+
+
+  /* BUTTON CSS */
+  .uniBtn {
+    background-color: forestgreen;
+    border-color: forestgreen;
+    margin: 8px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .uniBtn:hover {
+    background-color: darkgrey;
+    border-color: darkgrey;
+  }
+
+  .uniBtn:active {
+    background-color: forestgreen;
+    border-color: forestgreen;
+  }
+
+  .cardBtn {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .cardBtn:hover {
+    background-color: darkgrey;
+    border-color: darkgrey;
+  }
+
+  .cardBtn:active {
+    background-color: forestgreen;
+    border-color: forestgreen;
+  }
+
+  .discordBtn {
+      background-color: transparent;
+      border-color: transparent;
+  }
+
+  .discordBtn:hover {
+    background-color: darkgray;
+    border-color: transparent;
+  }
+
+  /* Member & Gallery CSS */
+
+  .galleryHead {
+    background-color:forestgreen;
+    color:white;
+    size: small;
+  }
+
+  .galleryBody {
+    background-color:#282c34;
+    color:white;
+    size: small;
+  }
+
+.galleryJumbo {
+  background-color: #282c34;
+  padding:0px;
+}
+
+.galleryP {
+  background-color: #282c3483;
+  font-weight: bold;
+  display: inline-block;
+  font-size: small;
+}
